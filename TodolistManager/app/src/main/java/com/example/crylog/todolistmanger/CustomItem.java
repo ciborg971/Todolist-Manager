@@ -36,4 +36,7 @@ public class CustomItem extends LinearLayout{
         TV = (TextView) findViewById(R.id.TV);
         CB = (CheckBox) findViewById(R.id.CB);
     }
+    public void SetName(String name){
+        TV.setText(name);
+    }
 }

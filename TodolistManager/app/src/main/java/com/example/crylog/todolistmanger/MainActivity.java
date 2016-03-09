@@ -21,15 +21,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mainlist = (ListView) findViewById(R.id.mainlist);
-        ArrayList<String> al_strings = new ArrayList<String>();
-        ArrayAdapter<String> aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, al_strings);
+        ArrayList<Todo> al_todo = new ArrayList<Todo>();
+        TodoAdapter a = new TodoAdapter(this, al_todo);
 // make the list view an observer of the array adapter.
-        mainlist.setAdapter(aa);
+        mainlist.setAdapter(a);
 // add in 3 strings to the array adapter and ask the list view to update itself
-        for(int i = 0; i < 42; i++)
-            al_strings.add("" + i);
-
-        aa.notifyDataSetChanged();
+        for(int i = 0; i < 42; i++) {
+            Todo sample1 = new Todo(""+i,false);
+            al_todo.add(i,sample1);
+        }
+        a.notifyDataSetChanged();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
