@@ -37,7 +37,9 @@ public class TodoAdapter extends ArrayAdapter<Todo> {
         TextView TV = (TextView) convertView.findViewById(R.id.TV);
         CheckBox CB = (CheckBox) convertView.findViewById(R.id.CB);
         TV.setText(TODO.Actual_Name());
-        CB.setChecked(false);
+        TODO.SetBool(CB.isChecked());
+        CB.setChecked(TODO.status());
+
         return convertView;
     }
 

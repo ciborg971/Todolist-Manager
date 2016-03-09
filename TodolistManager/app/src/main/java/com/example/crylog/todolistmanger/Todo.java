@@ -7,14 +7,14 @@ public class Todo {
     private boolean done;
     private String name;
 
-    Todo(String str, boolean dn)
+    Todo(String str)
     {
-        done = dn;
+        done = false;
         name = str;
     }
-    public void Done ()
+    public void SetBool (boolean bool)
     {
-        done = true;
+        done = bool;
     }
 
     public boolean status()

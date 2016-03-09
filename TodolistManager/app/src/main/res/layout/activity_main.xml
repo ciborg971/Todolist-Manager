@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="com.example.crylog.todolistmanger.MainActivity">
+    android:orientation="vertical"
+    >
 
-    <android.support.design.widget.AppBarLayout
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:id="@+id/mainlist"
+        android:layout_weight="2"
+        >
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </ListView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="0.8">
 
-    </android.support.design.widget.AppBarLayout>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:layout_weight="0.5"
+            android:id="@+id/ET"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_text"
+            android:layout_weight="0.5"
+            android:id="@+id/AddBtn"
+            />
 
-    <include layout="@layout/content_main" />
+    </LinearLayout>
 
-
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>
