@@ -21,10 +21,6 @@ public class Todo {
     {
         return done;
     }
-    public void Rename (String new_name)
-    {
-        name = new_name;
-    }
 
     public String Actual_Name()
     {
