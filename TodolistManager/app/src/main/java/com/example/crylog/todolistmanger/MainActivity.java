@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         mainlist = (ListView) findViewById(R.id.mainlist);
         final ArrayList<Todo> al_todo = new ArrayList<Todo>();
-        TodoAdapter a = new TodoAdapter(this, al_todo);
+        final TodoAdapter a = new TodoAdapter(this, al_todo);
 // make the list view an observer of the array adapter.
         mainlist.setAdapter(a);
 
@@ -42,6 +43,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
                                   });
+
+        mainlist.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                if (parent == mainlist) {
+                    al_todo.remove(position);
+                    a.notifyDataSetChanged();
+                    return true;
+                }
+
+                return false;
+            }
+        });
 
         a.notifyDataSetChanged();
     }
